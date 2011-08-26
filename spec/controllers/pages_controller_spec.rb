@@ -4,6 +4,10 @@ describe PagesController do
 
   render_views
 
+  before(:each) do 
+    @base_title = "Ruby on Rails"
+  end
+
   describe "GET 'home'" do
     it "should be successful" do
       get 'home'
@@ -13,7 +17,7 @@ describe PagesController do
     it "should have the right title" do
       get 'home'
 	response.should have_selector("title", 
-                          :content => "Ruby on Rails | Home")
+                                      :content => "#{@base_tile} | Home")    #FROM BEFORE STATEMENT
     end
  
     it "should have a non-blank body" do 
@@ -30,7 +34,7 @@ describe PagesController do
     it "should have the right title" do
       get 'contact'
 	response.should have_selector("title", 
-                          :content => "Ruby on Rails | Contact")
+                                      :content => "#{@base_tile} | Contact")    #FROM BEFORE STATEMENT
     end
 
   end
@@ -43,7 +47,7 @@ describe PagesController do
     it "should have the right title" do
       get 'about'
 	response.should have_selector("title", 
-                          :content => "Ruby on Rails | About")
+                                      :content => "#{@base_tile} | About")    #FROM BEFORE STATEMENT
     end
 
   end
